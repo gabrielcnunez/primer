@@ -1,3 +1,12 @@
 export function calculateTotal (items, tax) {
-  // TODO
+  let total = 0
+  for (const item of items) {
+    if (item.taxable) {
+      total += item.price * (1 + Math.abs(tax))
+    } else {
+      total += item.price
+    }
+  }
+
+  return total
 }
